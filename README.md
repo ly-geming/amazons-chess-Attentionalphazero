@@ -54,20 +54,34 @@
 
 ```bash
 .
-├── amazons/                       # Python 核心逻辑
-│   ├── AmazonsGame.py             # 游戏规则封装
-│   ├── pytorch/                   # 神经网络架构
-│   │   ├── AmazonsPytorch.py      # ResNet + Dynamic Head 定义
-│   │   └── NNet.py                # 网络训练 Wrapper
-│   └── train_config.py            # 训练超参数配置
-├── amazons_ops.cpp                # C++ 核心扩展 (特征提取、Buffer、规则引擎)
-├── OrchestratedMCTS.py            # 并行 MCTS 搜索逻辑
-├── OrchestratedParallelCoach.py   # 训练调度器 (Self-Play & Arena)
-├── botzone.py                     # 在线评测提交脚本 (Botzone适配)
-└── setup.py                       # 编译配置文件
+├── amazons/                         # Python 核心逻辑
+│   ├── AmazonsGame.py
+│   ├── pytorch/
+│   │   ├── AmazonsPytorch.py
+│   │   └── NNet.py
+│   └── train_config.py
+├── amazons_ops.cpp                  # C++ 核心扩展
+├── origin.cpp                       # 可能用于原型对比/遗留代码
+├── Arena.py                         # 竞技场对战逻辑
+├── CONTRIBUTING.md                  # 贡献指南
+├── Dispatcher.py                    # 异步/任务调度逻辑
+├── Game.py                         # 游戏主逻辑
+├── GpuWorker.py                     # GPU 推理工作线程
+├── LICENSE                          # MIT 许可证
+├── NeuralNet.py                     # 网络接口/训练逻辑封装
+├── OrchestratedMCTS.py              # 并行 MCTS 搜索逻辑
+├── OrchestratedParallelCoach.py     # Self-Play / Arena 训练调度
+├── ProcessManager.py                # 进程管理工具
+├── README.md                        # 项目说明文档
+├── requirements.txt                 # Python 依赖清单
+├── setup.py                        # C++ 扩展编译配置
+├── train_distill.py                 # 用于蒸馏 / 训练流程扩展
+├── trans.py                         # 支持脚本/数据转换工具
+└── utils.py                        # 通用工具函数
+
 ```
 
----
+
 
 ## 🛠️ 安装与编译 (Installation)
 
