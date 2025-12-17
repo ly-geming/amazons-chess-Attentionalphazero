@@ -1,0 +1,97 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyTorch models and checkpoints
+*.pth
+*.pth.tar
+*.pt
+checkpoint/
+*.bin
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Logs
+logs/
+*.log
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Compiled C++ extensions (build artifacts)
+*.exp
+*.lib
+*.obj
+amazons_engine.*.pyd
+teacher_bridge.*.pyd
+amazons_ops.*.pyd
+
+# Training data files (large binary files)
+*.examples
+teacher_data*.bin
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Open source preparation files (辅助工具，不需要提交)
+GITHUB_SETUP_GUIDE.md
+OPENSOURCE_CHECKLIST.md
+QUICK_START.md
+WHAT_TO_COMMIT.md
+FINAL_CHECKLIST.md
+check_files_to_commit.py
+setup_git_repo.bat
+setup_git_repo.sh
