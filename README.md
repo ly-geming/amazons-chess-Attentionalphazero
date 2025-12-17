@@ -53,6 +53,9 @@
 ├── OrchestratedParallelCoach.py # 训练调度器 (Self-Play & Arena)
 ├── botzone.py                # 在线评测提交脚本 (Botzone适配)
 └── setup.py                  # 编译配置文件
+
+```
+
 🛠️ 安装与编译
 环境要求
 Python >= 3.8
