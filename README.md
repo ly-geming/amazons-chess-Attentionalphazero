@@ -65,89 +65,102 @@
 ├── OrchestratedParallelCoach.py   # 训练调度器 (Self-Play & Arena)
 ├── botzone.py                     # 在线评测提交脚本 (Botzone适配)
 └── setup.py                       # 编译配置文件
-
 ```
-🛠️ 安装与编译 (Installation)
 
-环境要求
+---
 
-Python >= 3.8
+## 🛠️ 安装与编译 (Installation)
 
-PyTorch >= 1.9.0 (CUDA 推荐)
+### 环境要求
 
-C++ 编译器 (GCC/Clang/MSVC) 支持 C++17
+* Python >= 3.8
 
-1. 克隆仓库
+* PyTorch >= 1.9.0 (CUDA 推荐)
+
+* C++ 编译器 (GCC/Clang/MSVC) 支持 C++17
+
+### 1. 克隆仓库
+
 ```bash
-git clone [<your-repo-url>](https://github.com/ly-geming/amazons-chess-Attentionalphazero)
+git clone <your-repo-url>
+cd V10
 ```
 
-2. 安装依赖
+### 2. 安装依赖
+
 ```bash
 pip install -r requirements.txt
 ```
 
-3. 编译 C++ 高性能扩展 (重要)
+### 3. 编译 C++ 高性能扩展 (重要)
 
 这是项目运行的核心，必须首先完成。
+
 ```bash
 python setup.py build_ext --inplace
-
 ```
-编译成功后，目录中应出现 amazons_ops.pyd (Windows) 或 amazons_ops.so (Linux)。
 
-🚀 快速开始 (Quick Start)
+*编译成功后，目录中应出现 `amazons_ops.pyd` (Windows) 或 `amazons_ops.so` (Linux)。*
 
-启动 AlphaZero 自我博弈训练
+---
+
+## 🚀 快速开始 (Quick Start)
+
+### 启动 AlphaZero 自我博弈训练
 
 该命令将启动完整的强化学习循环：自对弈收集数据 -> 神经网络训练 -> 竞技场评估 -> 模型迭代。
 
+```bash
 # 推荐使用 load-best 继续优化最佳模型
-```bash
 python amazons/train.py --load-best
-```
+
 # 或者从零开始训练
-```bash
 python amazons/train.py
 ```
 
-模型验证
+### 模型验证
 
 运行推理验证脚本，检查模型是否理解复杂的“困毙”规则以及 Attention 机制是否正常工作。
+
 ```bash
 python verify_model_inference.py
 ```
 
-⚙️ 核心组件开发 (Development)
+---
 
-调用 C++ 特征提取
+## ⚙️ 核心组件开发 (Development)
+
+### 调用 C++ 特征提取
+
 ```python
 import amazons_ops
 import numpy as np
-```
+
 # 返回 (7, 8, 8) 的浮点特征张量，包含：
 # MyPiece, OpPiece, Obstacles, MyMobility, OpMobility, MyShoot, OpShoot
-```python
 features = amazons_ops.compute_7ch_features(board_my, board_op, board_arr)
 ```
 
-调用 Replay Buffer
+### 调用 Replay Buffer
+
 ```python
 buffer = amazons_ops.ReplayBuffer(capacity=1000000)
-```
 # 线程安全地添加自对弈样本
-```python
 buffer.add_sample(board, player, winner, srcs, dsts, arrs, probs)
 ```
 
-🙏 致谢 (Acknowledgements)
+---
 
-特别致谢：诚挚感谢我的 《计算概论A》 课程的助教。本次大作业不仅为我提供了深入探索神经网络与 AlphaZero 算法的宝贵契机，助教们的悉心指导更在项目实现过程中给予了我巨大的帮助与启发。
+## 🙏 致谢 (Acknowledgements)
 
-算法灵感来源于 DeepMind 的 AlphaZero 论文：Mastering Chess and Shogi by Self-Play with a General Reinforcement Learning Algorithm
+特别致谢：诚挚感谢我的 **《计算概论A》** 课程的助教。本次大作业不仅为我提供了深入探索神经网络与 AlphaZero 算法的宝贵契机，助教们的悉心指导更在项目实现过程中给予了我巨大的帮助与启发。
 
-感谢开源社区对 AlphaZero General 框架的探索，本项目在此基础上针对亚马逊棋进行了深度定制。
+* 算法灵感来源于 DeepMind 的 AlphaZero 论文：[Mastering Chess and Shogi by Self-Play with a General Reinforcement Learning Algorithm](https://arxiv.org/abs/1712.01815)
 
-📜 许可证 (License)
+* 感谢开源社区对 AlphaZero General 框架的探索，本项目在此基础上针对亚马逊棋进行了深度定制。
 
-本项目采用 MIT License 许可证。
+---
+
+## 📜 许可证 (License)
+
+本项目采用 [MIT License](LICENSE) 许可证。
