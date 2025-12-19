@@ -61,7 +61,6 @@
 │   │   └── NNet.py
 │   └── train_config.py
 ├── amazons_ops.cpp                  # C++ 核心扩展
-├── origin.cpp                       # 可能用于原型对比/遗留代码
 ├── Arena.py                         # 竞技场对战逻辑
 ├── CONTRIBUTING.md                  # 贡献指南
 ├── Dispatcher.py                    # 异步/任务调度逻辑
@@ -75,7 +74,6 @@
 ├── README.md                        # 项目说明文档
 ├── requirements.txt                 # Python 依赖清单
 ├── setup.py                        # C++ 扩展编译配置
-├── train_distill.py                 # 用于蒸馏 / 训练流程扩展
 ├── trans.py                         # 支持脚本/数据转换工具
 └── utils.py                        # 通用工具函数
 
